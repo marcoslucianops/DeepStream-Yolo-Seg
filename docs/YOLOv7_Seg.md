@@ -1,4 +1,4 @@
-# YOLOv7 usage
+# YOLOv7-Seg usage
 
 **NOTE**: The yaml file is not required.
 

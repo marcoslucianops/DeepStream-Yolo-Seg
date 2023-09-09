@@ -1,4 +1,4 @@
-# YOLOv5 usage
+# YOLOv5-Seg usage
 
 **NOTE**: The yaml file is not required.
 

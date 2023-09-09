@@ -10,9 +10,9 @@ NVIDIA DeepStream SDK application for YOLO-Seg models
 
 * [Supported models](#supported-models)
 * [Instructions](#basic-usage)
-* [YOLOv5 usage](docs/YOLOv5.md)
-* [YOLOv7 usage](docs/YOLOv7.md)
-* [YOLOv8 usage](docs/YOLOv8.md)
+* [YOLOv5-Seg usage](docs/YOLOv5_Seg.md)
+* [YOLOv7-Seg usage](docs/YOLOv7_Seg.md)
+* [YOLOv8-Seg usage](docs/YOLOv8_Seg.md)
 * [NMS configuration](#nms-configuration)
 * [Detection threshold configuration](#detection-threshold-configuration)
 
@@ -20,9 +20,9 @@ NVIDIA DeepStream SDK application for YOLO-Seg models
 
 ### Supported models
 
-* [YOLOv8](https://github.com/ultralytics/ultralytics)
-* [YOLOv7](https://github.com/WongKinYiu/yolov7)
-* [YOLOv5](https://github.com/ultralytics/yolov5)
+* [YOLOv8-Seg](https://github.com/ultralytics/ultralytics)
+* [YOLOv7-Seg](https://github.com/WongKinYiu/yolov7)
+* [YOLOv5-Seg](https://github.com/ultralytics/yolov5)
 
 ##
 

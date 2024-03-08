@@ -68,8 +68,8 @@ class DeepStreamOutput(nn.Module):
 
         boxes = boxes @ convert_matrix
 
-        selected_indices = NMS.apply(boxes, scores.transpose(1, 2).contiguous(), self.max_det, self.conf_thres,
-                                     self.iou_thres)
+        selected_indices = NMS.apply(boxes, scores.transpose(1, 2).contiguous(), self.max_det, self.iou_thres,
+                                     self.conf_thres)
 
         b, c, mh, mw = protos.shape
         n = selected_indices.shape[0]

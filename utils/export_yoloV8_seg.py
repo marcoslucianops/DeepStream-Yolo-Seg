@@ -8,7 +8,7 @@ import torch
 import torch.nn as nn
 from copy import deepcopy
 from ultralytics import YOLO
-from ultralytics.yolo.utils.torch_utils import select_device
+from ultralytics.utils.torch_utils import select_device
 from ultralytics.nn.modules import C2f, Detect, RTDETRDecoder
 
 
@@ -68,8 +68,8 @@ class DeepStreamOutput(nn.Module):
 
         boxes = boxes @ convert_matrix
 
-        selected_indices = NMS.apply(boxes, scores.transpose(1, 2).contiguous(), self.max_det, self.conf_thres,
-                                     self.iou_thres)
+        selected_indices = NMS.apply(boxes, scores.transpose(1, 2).contiguous(), self.max_det, self.iou_thres,
+                                     self.conf_thres)
 
         b, c, mh, mw = protos.shape
         n = selected_indices.shape[0]
@@ -77,10 +77,10 @@ class DeepStreamOutput(nn.Module):
         batch_index = selected_indices[:, 0]
         box_index = selected_indices[:, 2]
 
-        selected_boxes = boxes[batch_index, box_index, :]
-        selected_scores = scores[batch_index, box_index, :]
-        selected_classes = classes[batch_index, box_index, :]
-        selected_masks = masks[batch_index, box_index, :]
+        selected_boxes = boxes[batch_index, box_index]
+        selected_scores = scores[batch_index, box_index]
+        selected_classes = classes[batch_index, box_index]
+        selected_masks = masks[batch_index, box_index]
 
         pooled_proto = RoiAlign.apply(protos, selected_boxes, batch_index, 'half_pixel', 'avg', int(mh), int(mw), 0, 0.25)
 
@@ -95,8 +95,8 @@ class DeepStreamOutput(nn.Module):
 
         y, i = batched_dets.shape[1:]
 
-        final_dets = batched_dets.new_zeros((b, self.max_det, i))
-        final_dets[:, :y, :] = batched_dets
+        # fix Reshape would change volume
+        final_dets = torch.nn.functional.pad(batched_dets, (0, 0, 0, self.max_det - y), mode='constant', value=0)
 
         final_boxes = final_dets[:, :, :4]
         final_scores = final_dets[:, :, 4:5]

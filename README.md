@@ -17,6 +17,7 @@ NVIDIA DeepStream SDK 8.0 / 7.1 / 7.0 / 6.4 / 6.3 / 6.2 / 6.1.1 / 6.1 / 6.0.1 / 
 * [YOLOv7-Mask usage](docs/YOLOv7_Mask.md)
 * [YOLOv8-Seg usage](docs/YOLOv8_Seg.md)
 * [YOLO11-Seg usage](docs/YOLO11_Seg.md)
+* [YOLO26-Seg usage](docs/YOLO26_Seg.md)
 * [RF-DETR-Seg usage](docs/RFDETR_Seg.md)
 * [NMS configuration](#nms-configuration)
 * [Detection threshold configuration](#detection-threshold-configuration)
@@ -26,6 +27,7 @@ NVIDIA DeepStream SDK 8.0 / 7.1 / 7.0 / 6.4 / 6.3 / 6.2 / 6.1.1 / 6.1 / 6.0.1 / 
 ### Supported models
 
 * [RF-DETR-Seg](https://github.com/roboflow/rf-detr)
+* [YOLO26-Seg](https://github.com/ultralytics/ultralytics)
 * [YOLO11-Seg](https://github.com/ultralytics/ultralytics)
 * [YOLOv8-Seg](https://github.com/ultralytics/ultralytics)
 * [YOLOv7-Mask](https://github.com/WongKinYiu/yolov7/tree/mask)
